@@ -179,12 +179,10 @@ function verifyJWT ( jwt64, signingKeyHex ) {
 //================================================================//
 
 //----------------------------------------------------------------//
-function hashSD ( plaintext, key ) {
+function hashSD ( plaintext ) {
 
     plaintext = sodium.from_string ( plaintext );
-    key = key ? sodium.from_hex ( key ) : undefined;
-
-    return sodium.to_hex ( sodium.crypto_generichash ( sodium.crypto_generichash_BYTES_MAX, plaintext, key ));
+    return sodium.to_hex ( sodium.crypto_generichash ( sodium.crypto_generichash_BYTES_MAX, plaintext ));
 }
 
 //----------------------------------------------------------------//

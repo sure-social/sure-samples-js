@@ -2,9 +2,9 @@
 
 This is a repository of samples showing how to integrate SURE.social with your website or service.
 
-Right now there is only one sample. It shows how to use SURE.social's doubly-anonymized "ad hoc" age verification. It is written in Javascript, but should be easy to port to any other language. See the documentation in the project folder for an explanation of how it works.
+Right now there is only one sample. It shows how to use SURE.social's doubly-anonymized "ad hoc" age verification. It is written in Javascript but should be easy to port to any other language. See the documentation in the project folder for an explanation of how it works.
 
-We use libsodium for our cryptography and recommend you do the same, if a port or wrapper is available in the language of your choice. If not, you will need to reac libsodium's documentation and find other implementations of the default algorithms it uses for hashing and verification.
+We use libsodium for our cryptography and recommend you do the same if a port or wrapper is available in the language of your choice. If not, you will need to read libsodium's documentation and find other implementations of the default algorithms it uses for hashing and verification.
 
 
 ### Endpoints
@@ -66,9 +66,9 @@ The 'key name' is just a UUID. See the 'ad hoc' sample for a more detailed expla
 
 To use SURE.social as a blue check for your community, web forum, dating service, etc. just give your users a way to paste a SURE.tag into their user profile page. If you are doing an official integration, you should choose an official community name. The community name doesn't have to be unique and is entirely up to you. You don't have to tell us what it is. Just be aware that users can only provision *one identity at a time* for any given community name. So choose something fairly specific to you, such as your Discord server name or reverse URL.
 
-Because you know the community name, and a user's username must match the unique username on their profile in your community, the only thing you need from their tag is the magic number. When a user pastes a SURE tag into their profile, make sure the community name is what you expect and the username matches exactly. Otherwise, reject the tag.
+Because you know the community name and a user's username must match the unique username on their profile in your community, the only thing you need from their tag is the magic number. When a user pastes a SURE tag into their profile, make sure the community name is what you expect and the username matches exactly. Otherwise, reject the tag.
 
-To verify a user's status and display a blue check, just GET our identity lookup endpoint using a hash of the tag, as described above. We recommend you reconstruct the tag components each time you hit the endpoint from the official community name you chose and the user's current username. We also recommend that you hit the endpoint every time you display the blue check. In fact, our ToS requires this. This will ensure that the blue check is current and will prevent users from creating multiple accounts in your community.
+To verify a user's status and display a blue check, just GET our identity lookup endpoint using a hash of the tag, as described above. We recommend you reconstruct the tag components each time you hit the endpoint from the official community name you chose and the user's current username. We also recommend that you hit the endpoint every time you display the blue check. Our ToS requires this. This will ensure that the blue check is current and will prevent users from creating multiple accounts in your community.
 
-In addition to a blue check, you can use the contents of the identity to display any other verified claims make by the user, such as their age, minimum age, recourse status, or name.
+In addition to a blue check, you can use the contents of the identity to display any other verified claims made by the user, such as their age, minimum age, recourse status, or name.
 
